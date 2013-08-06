@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from uuid import uuid4
 
 class Token(models.Model):
-    token = models.CharField(max_length=36)
+    token = models.CharField(max_length=36, unique=True)
     user = models.ForeignKey(User)
 
     def __unicode__(self):
