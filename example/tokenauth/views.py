@@ -25,3 +25,8 @@ def login(request):
 def logout(request):
     logout(request)
     return HttpResponse(status=200)
+
+def test(request):
+    data = {'user': request.user.username}
+    data = simplejson.dumps(data)
+    return HttpResponse(data, status=200)
