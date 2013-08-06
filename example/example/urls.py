@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from tokenauth.views import login, logout
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,8 +7,8 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'example.views.home', name='home'),
-    # url(r'^example/', include('example.foo.urls')),
+    url(r'^login/$', login),
+    url(r'^logout/', logout),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
