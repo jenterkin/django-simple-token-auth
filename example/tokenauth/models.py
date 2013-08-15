@@ -19,4 +19,6 @@ def create_initial_token(sender, instance=None, created=False, **kwargs):
     if created:
         token = Token.objects.create(user=instance)
         token.renew()
+        while token.token in [x.token for x in Token.objects.all()]:
+            token.renew()
         token.save()
