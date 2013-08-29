@@ -23,7 +23,7 @@ def login(request):
     user = authenticate(username=username, password=password)
     if user:
         token = Token.objects.get(user=user).token
-        data = {'message': '', 'token': token}
+        data = {'message': '', 'token': token, 'id':user.pk}
         data = simplejson.dumps(data)
         return HttpResponse(data, status=200)
     else:
